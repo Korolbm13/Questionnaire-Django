@@ -1,12 +1,18 @@
+<body style="background-color:#000000;">
+<a class="login" href="{% url 'profile' %}" style="margin-left: 1300px; color: #ffffff">{{ user.username }}</a>
+ <small class="text-muted">
+            <a style="color: #ffffff" href="{% url 'login' %}">Выйти</a>
+        </small>
 <form action="/opros/{{ question.id }}/vote/" method="post">
 {% csrf_token %}
 <fieldset>
-    <legend><h1>{{ question.question_text }}</h1></legend>
+    <legend style="color: #ffffff"><h1>{{ question.question_text }}</h1></legend>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+        <label style="color: #ffffff" for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
     {% endfor %}
 </fieldset>
 <input type="submit" value="Голосовать">
 </form>
+</body>
