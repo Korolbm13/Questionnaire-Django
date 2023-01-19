@@ -1,9 +1,15 @@
 {% if question_list %}
+<body style="background-color:#000000;">
+<a class="login" href="{% url 'profile' %}" style="margin-left: 1300px; color: #ffffff">{{ user.username }}</a>
+<small class="text-muted">
+            <a style="color: #ffffff" href="{% url 'login' %}">Выйти</a>
+        </small>
     <ul>
     {% for question in question_list %}
-        <li><a href="/opros/{{ question.id }}/">{{ question.question_text }}</a></li>
+        <li><a style="color: #ffffff" href="/opros/{{ question.id }}/">{{ question.question_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>Опросов нет.</p>
 {% endif %}
+</body>

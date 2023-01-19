@@ -5,6 +5,10 @@ from django.views import generic
 from .models import Choice, Question
 
 
+def index(request):
+        return render(request, "index.html")
+
+
 class IndexView(generic.ListView):
     template_name = 'opros_index.html'
     def get_queryset(self):

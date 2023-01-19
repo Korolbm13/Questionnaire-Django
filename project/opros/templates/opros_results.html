@@ -1,7 +1,13 @@
-<h1>{{ question.question_text }}</h1>
+<body style="background-color:#000000;">
+<a class="login" href="{% url 'profile' %}" style="margin-left: 1300px; color: #ffffff">{{ user.username }}</a>
+<small class="text-muted">
+            <a style="color: #ffffff" href="{% url 'login' %}">Выйти</a>
+        </small>
+<h1 style="color: #ffffff">{{ question.question_text }}</h1>
 <ul>
 {% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+    <li style="color: #ffffff">{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
 {% endfor %}
 </ul>
-<a href="{% url 'detail' question.id %}">Голосовать еще</a>
+<a style="color: #ffffff" href="{% url 'detail' question.id %}">Голосовать еще</a>
+</body>
